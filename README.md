@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # filters
 
 ## Project setup
@@ -30,3 +31,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # vue-filter 
 # vue-filter
 # vue-filter
+=======
+# YO
+>>>>>>> 4f2ab33b2bb251f16c6218849d91e6808337a466
