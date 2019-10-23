@@ -196,26 +196,26 @@
             { id: 63, name: 'Product 63', maxVoltage: 300, maxCurrent: 30, maxPower: 3000, numberOutputs: 1, class: 'Basic' },
             { id: 64, name: 'Product 64', maxVoltage: 300, maxCurrent: 30, maxPower: 3000, numberOutputs: 1, class: 'Basic' },
             { id: 65, name: 'Product 65', maxVoltage: 300, maxCurrent: 30, maxPower: 3000, numberOutputs: 1, class: 'Basic' },
-            { id: 66, name: 'Product 66', maxVoltage: 300, maxCurrent: 30, maxPower: 3000, numberOutputs: 1, class: 'Basic' },
-            { id: 67, name: 'Product 67', maxVoltage: 300, maxCurrent: 30, maxPower: 3000, numberOutputs: 1, class: 'Basic' },
-            { id: 68, name: 'Product 68', maxVoltage: 300, maxCurrent: 30, maxPower: 3000, numberOutputs: 1, class: 'Basic' },
-            { id: 69, name: 'Product 69', maxVoltage: 300, maxCurrent: 30, maxPower: 3000, numberOutputs: 1, class: 'Basic' },
-            { id: 70, name: 'Product 70', maxVoltage: 300, maxCurrent: 30, maxPower: 3000, numberOutputs: 1, class: 'Basic' }
 					]
         },
         productCount: 0,
+        allProductCount: 65,
         allProducts: true,
         showPerformance: false,
         showValue: false,
         showBasic: false
 			}
     },
+    mounted() { 
+      let count = this.content.products.length
+      this.productCount = count
+    },
     computed: {
       getPerformance: function () {
         return this.content.products.filter(performanceProduct => performanceProduct.class == "Performance")
       },
       getValue: function () {
-        return this.content.products.filter(valueProduct=> valueProduct.class == "Value")
+        return this.content.products.filter(valueProduct => valueProduct.class == "Value")
       },
       getBasic: function () {
         return this.content.products.filter(basicProduct => basicProduct.class == "Basic")
@@ -224,12 +224,31 @@
 		methods: {
       togglePerformance: function() {
         this.showPerformance = !this.showPerformance
+
+        // Update productCount with our new filtered items. 
+        let count = this.getPerformance.length
+        let allProducts = this.content.products.length
+        this.productCount = count
+
+        // Set it back to the original count when we uncheck the box.
+        if (this.productCount == allProducts) {
+          this.productCount == this.allProductCount
+        }
       },
       toggleValue: function() {
         this.showValue= !this.showValue
+        let count = this.getValue.length
+        this.productCount= count
       },
       toggleBasic: function() {
         this.showBasic = !this.showBasic
+        let count = this.getBasic.length
+        this.productCount= count
+      },
+      updateCount: function() {
+        // Updating the productCount variable.
+        let count = this.getPerformance.length
+        this.productCount = count
       }
     }
 }
