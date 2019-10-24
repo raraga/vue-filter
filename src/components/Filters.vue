@@ -29,7 +29,7 @@
               <td>Class</td>
             </thead>
              <tr v-for="product in getPerformance" v-bind:key="product.id">
-                <td>{{ product.name }}</td>
+                <td><img src="https://bkpmedia.s3.amazonaws.com/icons/new-products/8500B.gif" alt="">{{ product.name }}</td>
                 <td>{{ product.maxVoltage }}</td>
                 <td>{{ product.maxCurrent }}</td>
                 <td>{{ product.maxPower }}</td>
@@ -50,7 +50,7 @@
               <td>Class</td>
             </thead>
              <tr v-for="product in getValue" v-bind:key="product.id">
-                <td>{{ product.name }}</td>
+                <td><img src="https://bkpmedia.s3.amazonaws.com/icons/new-products/8500B.gif" alt="">{{ product.name }}</td>
                 <td>{{ product.maxVoltage }}</td>
                 <td>{{ product.maxCurrent }}</td>
                 <td>{{ product.maxPower }}</td>
@@ -71,7 +71,7 @@
               <td>Class</td>
             </thead>
              <tr v-for="product in getBasic" v-bind:key="product.id">
-                <td>{{ product.name }}</td>
+                <td><img src="https://bkpmedia.s3.amazonaws.com/icons/new-products/8500B.gif" alt="">{{ product.name }}</td>
                 <td>{{ product.maxVoltage }}</td>
                 <td>{{ product.maxCurrent }}</td>
                 <td>{{ product.maxPower }}</td>
@@ -92,7 +92,10 @@
                 <td>Class</td>
               </thead>
               <tr v-for="product in products" v-bind:key="product.id">
-                  <td>{{ product.name }}</td>
+                  <td>
+                    <img src="https://bkpmedia.s3.amazonaws.com/icons/new-products/8500B.gif" alt="">
+                    <br>{{ product.name }}
+                  </td>
                   <td>{{ product.maxVoltage }}</td>
                   <td>{{ product.maxCurrent }}</td>
                   <td>{{ product.maxPower }}</td>
@@ -191,16 +194,10 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-	.is-one-quarter {
-		background: #fafafa;
-	}
-	.is-three-quarters {
-		background: #ebebeb;
-	}
-	.column li {
-		text-align: left;
-	}
-  label {
-    margin-right: 5px;
-  }
+  thead { font-weight: bold; }
+  label { margin-right: 5px; }
+
+	.is-one-quarter { background: #fafafa; }
+	.is-three-quarters { background: #ebebeb; }
+	.column li { text-align: left; }
 </style>
